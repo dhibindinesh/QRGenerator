@@ -1,0 +1,138 @@
+<div class="mx-auto w-full max-w-[500px] px-4 py-6">
+  <!-- Card -->
+  <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm
+              dark:border-gray-700 dark:bg-gray-800">
+
+    <!-- Header -->
+    <h2 class="mb-6 text-xl font-semibold text-gray-900 dark:text-gray-50">
+      QR Code Generator
+    </h2>
+
+    <!-- Input -->
+    <label
+      for="qr-input"
+      class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
+    >
+      Text / URL
+    </label>
+    <input
+      id="qr-input"
+      type="text"
+      [(ngModel)]="inputValue"
+      [value]="inputValue()"
+      (ngModelChange)="inputValue.set($event)"
+      placeholder="https://predictaleague.com"
+      aria-label="Enter text or URL to generate QR code"
+      class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm
+             text-gray-900 placeholder-gray-400 outline-none transition
+             focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30
+             dark:border-gray-600 dark:bg-gray-700 dark:text-gray-50
+             dark:placeholder-gray-500 dark:focus:border-indigo-400
+             dark:focus:ring-indigo-400/30"
+    />
+
+    <!-- Validation error -->
+    @if (validationError()) {
+      <p class="mt-1.5 text-sm text-red-600 dark:text-red-400" role="alert">
+        {{ validationError() }}
+      </p>
+    }
+
+    <!-- Generate button -->
+    <button
+      type="button"
+      (click)="generateQR()"
+      aria-label="Generate QR code"
+      class="mt-4 w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium
+             text-white transition hover:bg-indigo-700 focus:outline-none
+             focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+             dark:bg-indigo-500 dark:hover:bg-indigo-600
+             dark:focus:ring-offset-gray-800"
+    >
+      Generate QR
+    </button>
+
+    <!-- QR Preview -->
+    @if (hasQr()) {
+      <div class="mt-6">
+        <p class="mb-3 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
+          QR Preview
+        </p>
+
+        <div
+          #qrContainer
+          class="flex justify-center overflow-hidden rounded-xl border border-gray-200
+                 bg-white p-4 dark:border-gray-600"
+        >
+          <qrcode
+            [qrdata]="qrValue()"
+            [width]="size"
+            [errorCorrectionLevel]="'M'"
+            [elementType]="'canvas'"
+            [colorDark]="'#000000'"
+            [colorLight]="'#ffffff'"
+          />
+        </div>
+
+        <!-- Action buttons -->
+        <div class="mt-4 flex flex-col gap-2">
+          <button
+            type="button"
+            (click)="downloadQRCode()"
+            aria-label="Download QR code as PNG"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5
+                   text-sm font-medium text-gray-700 transition hover:bg-gray-50
+                   focus:outline-none focus:ring-2 focus:ring-indigo-500
+                   focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700
+                   dark:text-gray-200 dark:hover:bg-gray-600
+                   dark:focus:ring-offset-gray-800"
+          >
+            Download PNG
+          </button>
+
+          <button
+            type="button"
+            (click)="copyBase64()"
+            aria-label="Copy QR code as Base64 to clipboard"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5
+                   text-sm font-medium text-gray-700 transition hover:bg-gray-50
+                   focus:outline-none focus:ring-2 focus:ring-indigo-500
+                   focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700
+                   dark:text-gray-200 dark:hover:bg-gray-600
+                   dark:focus:ring-offset-gray-800"
+          >
+            Copy Base64
+          </button>
+
+          <button
+            type="button"
+            (click)="copyText()"
+            aria-label="Copy original text to clipboard"
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5
+                   text-sm font-medium text-gray-700 transition hover:bg-gray-50
+                   focus:outline-none focus:ring-2 focus:ring-indigo-500
+                   focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700
+                   dark:text-gray-200 dark:hover:bg-gray-600
+                   dark:focus:ring-offset-gray-800"
+          >
+            Copy Text
+          </button>
+        </div>
+      </div>
+    }
+
+    <!-- Feedback toast -->
+    @if (feedback()) {
+      <div
+        role="status"
+        aria-live="polite"
+        class="mt-4 rounded-lg px-4 py-3 text-sm"
+        [class]="feedback()!.type === 'success'
+          ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400'
+          : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400'"
+      >
+        {{ feedback()!.message }}
+      </div>
+    }
+  </div>
+</div>
