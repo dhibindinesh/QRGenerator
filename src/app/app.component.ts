@@ -1,28 +1,30 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { QrGeneratorComponent } from './shared/components/qr-generator/qr-generator.component';
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavComponent } from './shared/components/nav/nav.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { AnalyticsService } from './core/services/analytics.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QrGeneratorComponent],
+  imports: [RouterOutlet, NavComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  isDark = signal(false);
+  private readonly analytics = inject(AnalyticsService);
+
+  readonly isDark = signal(false);
 
   ngOnInit(): void {
     const stored = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.setDark(stored === 'dark' || (!stored && prefersDark));
+    this.analytics.initialize();
   }
 
   toggleTheme(): void {
     this.setDark(!this.isDark());
-  }
-
-  onQrGenerated(base64: string): void {
-    console.log('QR Base64 ready, length:', base64.length);
   }
 
   private setDark(dark: boolean): void {

@@ -1,0 +1,142 @@
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm
+               dark:border-gray-700 dark:bg-gray-900">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+       aria-label="Main navigation">
+
+    <!-- Brand / Logo -->
+    <a routerLink="/"
+       class="flex items-center gap-2 text-xl font-bold text-indigo-600 dark:text-indigo-400"
+       aria-label="QR Code Generator — Home">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24"
+           fill="currentColor" aria-hidden="true">
+        <path d="M3 3h7v7H3V3zm2 2v3h3V5H5zM14 3h7v7h-7V3zm2 2v3h3V5h-3zM3 14h7v7H3v-7zm2 2v3h3v-3H5zM14 14h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm-2 4h2v3h-2v-3zm2 0h3v2h-3v-2z"/>
+      </svg>
+      <span>QR Generator</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden items-center gap-6 md:flex" role="list">
+      <li>
+        <a routerLink="/"
+           routerLinkActive="font-semibold text-indigo-600 dark:text-indigo-400"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="closeMobileMenu()"
+           class="text-gray-600 transition hover:text-indigo-600
+                  dark:text-gray-300 dark:hover:text-indigo-400">
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/qr-generator"
+           routerLinkActive="font-semibold text-indigo-600 dark:text-indigo-400"
+           (click)="closeMobileMenu()"
+           class="text-gray-600 transition hover:text-indigo-600
+                  dark:text-gray-300 dark:hover:text-indigo-400">
+          Generator
+        </a>
+      </li>
+      <li>
+        <a routerLink="/about"
+           routerLinkActive="font-semibold text-indigo-600 dark:text-indigo-400"
+           (click)="closeMobileMenu()"
+           class="text-gray-600 transition hover:text-indigo-600
+                  dark:text-gray-300 dark:hover:text-indigo-400">
+          About
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right-side actions -->
+    <div class="flex items-center gap-2">
+
+      <!-- Theme toggle -->
+      <button
+        type="button"
+        (click)="themeToggle.emit()"
+        [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+        class="rounded-lg border border-gray-300 bg-white p-2 text-gray-600 transition
+               hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500
+               dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700">
+        @if (isDark) {
+          <!-- Sun icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+               fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              clip-rule="evenodd"/>
+          </svg>
+        } @else {
+          <!-- Moon icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+               fill="currentColor" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+        }
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button
+        type="button"
+        class="rounded-lg p-2 text-gray-600 hover:bg-gray-100 focus:outline-none
+               focus:ring-2 focus:ring-indigo-500 dark:text-gray-300
+               dark:hover:bg-gray-700 md:hidden"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMobileMenu()">
+        @if (mobileMenuOpen()) {
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        } @else {
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        }
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  @if (mobileMenuOpen()) {
+    <div id="mobile-menu"
+         class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900 md:hidden">
+      <ul class="space-y-1 px-4 py-3" role="list">
+        <li>
+          <a routerLink="/"
+             routerLinkActive="text-indigo-600 font-semibold bg-indigo-50 dark:bg-indigo-900/20"
+             [routerLinkActiveOptions]="{ exact: true }"
+             (click)="closeMobileMenu()"
+             class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50
+                    dark:text-gray-300 dark:hover:bg-gray-800">
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/qr-generator"
+             routerLinkActive="text-indigo-600 font-semibold bg-indigo-50 dark:bg-indigo-900/20"
+             (click)="closeMobileMenu()"
+             class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50
+                    dark:text-gray-300 dark:hover:bg-gray-800">
+            Generator
+          </a>
+        </li>
+        <li>
+          <a routerLink="/about"
+             routerLinkActive="text-indigo-600 font-semibold bg-indigo-50 dark:bg-indigo-900/20"
+             (click)="closeMobileMenu()"
+             class="block rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-50
+                    dark:text-gray-300 dark:hover:bg-gray-800">
+            About
+          </a>
+        </li>
+      </ul>
+    </div>
+  }
+
+</header>

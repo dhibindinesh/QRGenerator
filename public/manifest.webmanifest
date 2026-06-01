@@ -1,0 +1,19 @@
+{
+  "name": "QR Code Generator",
+  "short_name": "QR Generator",
+  "description": "Generate QR codes online for free. Convert URLs, text, emails, and more into downloadable QR codes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "any",
+  "lang": "en",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

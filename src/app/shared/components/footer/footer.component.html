@@ -1,0 +1,58 @@
+<footer class="border-t border-gray-200 bg-white py-12 px-4
+              dark:border-gray-700 dark:bg-gray-900">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+      <!-- Brand -->
+      <div>
+        <a routerLink="/" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">
+          QR Code Generator
+        </a>
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          Free online QR code generator. Create QR codes from URLs, text, emails, and more —
+          instantly and at no cost.
+        </p>
+      </div>
+
+      <!-- Navigation links -->
+      <div>
+        <h3 class="mb-3 font-semibold text-gray-900 dark:text-white">Pages</h3>
+        <ul class="space-y-2 text-sm" role="list">
+          <li>
+            <a routerLink="/"
+               class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">
+              Home
+            </a>
+          </li>
+          <li>
+            <a routerLink="/qr-generator"
+               class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">
+              QR Generator
+            </a>
+          </li>
+          <li>
+            <a routerLink="/about"
+               class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400">
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tool info -->
+      <div>
+        <h3 class="mb-3 font-semibold text-gray-900 dark:text-white">About This Tool</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          Generate QR codes for URLs, text, emails, phone numbers, and JSON data.
+          Download as PNG or copy as Base64. No sign-up required.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-8 border-t border-gray-200 pt-8 text-center text-sm
+                text-gray-500 dark:border-gray-700 dark:text-gray-400">
+      <p>&copy; {{ year }} QR Code Generator. Free to use.</p>
+    </div>
+  </div>
+</footer>

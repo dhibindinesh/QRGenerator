@@ -1,0 +1,214 @@
+<main>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-b from-indigo-50 to-white py-20 px-4 text-center dark:from-gray-800 dark:to-gray-900">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+        Free QR Code Generator Online
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+        Generate QR codes instantly from URLs, text, emails, phone numbers, JSON, and more.
+        Download as PNG or copy as Base64 — no sign-up required.
+      </p>
+      <div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <a
+          routerLink="/qr-generator"
+          class="rounded-lg bg-indigo-600 px-8 py-3 text-lg font-semibold text-white shadow-md
+                 transition hover:bg-indigo-700 focus:outline-none focus:ring-2
+                 focus:ring-indigo-500 focus:ring-offset-2">
+          Create QR Code Free
+        </a>
+        <a
+          routerLink="/about"
+          class="rounded-lg border border-gray-300 bg-white px-8 py-3 text-lg font-semibold
+                 text-gray-700 shadow-sm transition hover:bg-gray-50
+                 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Generate Instantly ────────────────────────────────────────────── -->
+  <section class="py-16 px-4" aria-labelledby="generate-heading">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 id="generate-heading" class="text-3xl font-bold text-gray-900 dark:text-white">
+        Generate QR Codes Instantly
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-gray-600 dark:text-gray-300">
+        Our free online QR code generator works entirely in your browser. Enter any URL or text,
+        click Generate, and download your QR image in seconds — no account, no watermarks, no cost.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Supported QR Types ────────────────────────────────────────────── -->
+  <section class="bg-gray-50 py-16 px-4 dark:bg-gray-800" aria-labelledby="features-heading">
+    <div class="mx-auto max-w-6xl">
+      <h2 id="features-heading" class="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
+        Supported QR Types
+      </h2>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        @for (feature of features; track feature.title) {
+          <div class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200
+                      dark:bg-gray-900 dark:ring-gray-700">
+            <div class="mb-3 text-3xl" aria-hidden="true">{{ feature.icon }}</div>
+            <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+              {{ feature.title }}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">{{ feature.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ──────────────────────────────────────────────────── -->
+  <section class="py-16 px-4" aria-labelledby="how-it-works-heading">
+    <div class="mx-auto max-w-4xl">
+      <h2 id="how-it-works-heading" class="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
+        How to Create a QR Code
+      </h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="text-center">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full
+                      bg-indigo-100 text-2xl font-bold text-indigo-600 dark:bg-indigo-900/40">
+            1
+          </div>
+          <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">Enter Your Content</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Paste a URL, type text, or enter any data you want to encode in your QR code.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full
+                      bg-indigo-100 text-2xl font-bold text-indigo-600 dark:bg-indigo-900/40">
+            2
+          </div>
+          <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">Generate Instantly</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Click Generate and your QR code is created instantly — right in your browser with no server upload.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full
+                      bg-indigo-100 text-2xl font-bold text-indigo-600 dark:bg-indigo-900/40">
+            3
+          </div>
+          <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">Download & Share</h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Download as PNG or copy as Base64. Use it anywhere — print, web, or digital.
+          </p>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a
+          routerLink="/qr-generator"
+          class="inline-block rounded-lg bg-indigo-600 px-8 py-3 font-semibold text-white
+                 transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          Try the QR Generator
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Use Cases ─────────────────────────────────────────────────────── -->
+  <section class="bg-gray-50 py-16 px-4 dark:bg-gray-800" aria-labelledby="use-cases-heading">
+    <div class="mx-auto max-w-6xl">
+      <h2 id="use-cases-heading" class="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
+        QR Code Use Cases
+      </h2>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        @for (useCase of useCases; track useCase.title) {
+          <div class="rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200
+                      dark:bg-gray-900 dark:ring-gray-700">
+            <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">{{ useCase.title }}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{{ useCase.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI-friendly explainer (concise paragraphs for AI summarisation) ─ -->
+  <section class="py-16 px-4" aria-labelledby="about-qr-heading">
+    <div class="mx-auto max-w-4xl">
+      <h2 id="about-qr-heading" class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">
+        What is a QR Code?
+      </h2>
+      <p class="mb-4 text-gray-600 dark:text-gray-300">
+        A <strong>QR Code</strong> (Quick Response Code) is a two-dimensional barcode invented in 1994 that
+        stores information in a machine-readable format. It has become the universal standard for instantly
+        sharing data between the physical and digital world.
+      </p>
+      <p class="mb-4 text-gray-600 dark:text-gray-300">
+        <strong>How does a QR code work?</strong> A QR code encodes data as a grid of black and white squares.
+        Error correction allows QR codes to be read even when partially damaged. Smartphone cameras decode
+        the pattern in milliseconds — no dedicated app needed on modern phones.
+      </p>
+      <p class="mb-4 text-gray-600 dark:text-gray-300">
+        <strong>Can I create QR codes for free?</strong> Yes. Our QR code generator is completely free.
+        You can generate unlimited QR codes directly in your browser — no registration, no watermarks,
+        and no limits on downloads.
+      </p>
+      <p class="text-gray-600 dark:text-gray-300">
+        <strong>Can I download QR codes?</strong> Yes. Every generated QR code can be downloaded as a
+        high-resolution PNG image or copied as a Base64 string for embedding directly in HTML or emails.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FAQ ───────────────────────────────────────────────────────────── -->
+  <section class="bg-gray-50 py-16 px-4 dark:bg-gray-800" aria-labelledby="faq-heading">
+    <div class="mx-auto max-w-3xl">
+      <h2 id="faq-heading" class="mb-12 text-center text-3xl font-bold text-gray-900 dark:text-white">
+        Frequently Asked Questions
+      </h2>
+      <div class="space-y-4">
+        @for (faq of faqs; track faq.question; let i = $index) {
+          <div class="rounded-xl bg-white shadow-sm ring-1 ring-gray-200
+                      dark:bg-gray-900 dark:ring-gray-700">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between px-6 py-4 text-left"
+              [attr.aria-expanded]="openFaqIndex === i"
+              (click)="toggleFaq(i)">
+              <h3 class="m-0 text-base font-semibold text-gray-900 dark:text-white">
+                {{ faq.question }}
+              </h3>
+              <span class="ml-4 flex-shrink-0 text-xl text-indigo-600 dark:text-indigo-400"
+                    aria-hidden="true">
+                {{ openFaqIndex === i ? '−' : '+' }}
+              </span>
+            </button>
+            @if (openFaqIndex === i) {
+              <div class="px-6 pb-5 text-gray-600 dark:text-gray-300">
+                {{ faq.answer }}
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────────────── -->
+  <section class="py-16 px-4 text-center">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+        Ready to Generate Your QR Code?
+      </h2>
+      <p class="mb-8 text-gray-600 dark:text-gray-300">
+        Create, download, and share QR codes in seconds — completely free, no sign-up required.
+      </p>
+      <a
+        routerLink="/qr-generator"
+        class="inline-block rounded-lg bg-indigo-600 px-10 py-4 text-lg font-semibold text-white
+               shadow-md transition hover:bg-indigo-700 focus:outline-none
+               focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Generate QR Code Now
+      </a>
+    </div>
+  </section>
+
+</main>

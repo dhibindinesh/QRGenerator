@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block nothing — this is a public utility tool
+Disallow:
+
+Sitemap: https://instant-qr-creator.netlify.app/sitemap.xml
